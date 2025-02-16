@@ -1,0 +1,207 @@
+/* ~ colors ~ */
+:root {
+  --white:#F7F2F2;
+  --black:#0D0D12;
+  --red:#EE3E33;
+  --blue:#211C61;
+  --lightblue:#5853a3;
+  --yellow:#FAB13E;
+}
+
+/* ~ fonts ~ */
+@font-face {
+  font-family: "Vogue";
+  src: url("fonts/Vogue.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Louis George Cafe";
+  src: url("fonts/louis_george_cafe/Louis George Cafe.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Louis George Cafe";
+  src: url("fonts/louis_george_cafe/Louis George Cafe Bold.ttf");
+  font-weight: bold;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:
+      /* pattern made using https://10015.io/tools/css-background-pattern-generator! */
+      conic-gradient(at 62.5% 12.5%, #a39595 25%, #0000 0) calc(44px/-8) calc(44px/2),
+      conic-gradient(at 62.5% 12.5%, #a39595 25%, #0000 0) calc(-3*44px/8) calc(44px/4),
+      conic-gradient(at 87.5% 62.5%, #a39595 25%, #0000 0) calc(3*44px/8) calc(44px/4),
+      conic-gradient(at 87.5% 62.5%, #a39595 25%, #0000 0) calc(44px/-8) 0,
+      conic-gradient(at 25% 12.5%, #a39595 25%, #0000 0) 0 calc(44px/-4),
+      conic-gradient(at 25% 12.5%, #a39595 25%, #0000 0) calc(44px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #a39595 25%, #0000 0) calc(44px/8) 0
+      #5b4f4f;
+background-size: 44px 44px;
+
+}
+
+main {
+  margin: 0 12%; 
+  background: var(--white);
+  height: 100%;
+}
+
+html{
+  font-size: 12pt;
+  font-family: Poppins, Segoe UI, Tahoma, sans-serif;
+}
+
+.logoText {
+  font-family: "Vogue";
+  font-size: 20pt;
+}
+
+/* ------------------ nav bar ------------------*/
+nav{
+  height: 60px;
+  width: 100%;
+  background-color: var(--black);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.links-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav a{
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+  font-family: "Louis George Cafe";
+  transition: transform .2s;
+}
+nav a:hover{
+  transform: scale(1.1); /* make sure to keep this number small */
+}
+
+nav .home-link{
+  margin-right: auto;
+}
+
+nav .home-link:hover {
+  color: var(--white) !important;
+  transform: scale(1) !important;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
+nav a .tab1:hover {
+  color: var(--red);
+}
+
+nav a .tab2:hover {
+  color: var(--yellow);
+}
+
+nav a .tab3:hover {
+  color: var(--lightblue);
+}
+
+#sidebar-active{
+  display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button{
+  display: none;
+}
+
+@media(max-width: 450px){
+  .links-container{
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    width: 300px;
+
+    background-color: var(--color-1);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-out;
+  }
+  nav a{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+  .open-sidebar-button, .close-sidebar-button{
+    padding: 20px;
+    display: block;
+  }
+  #sidebar-active:checked ~ .links-container{
+    right: 0;
+  }
+  #sidebar-active:checked ~ #overlay{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+}
+
+/* ------------------ slideshow ------------------*/
+* {box-sizing:border-box}
+
+.slideshow-container {
+  max-width: 1500px;
+  position: relative;
+  margin: auto;
+}
+
+/* buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

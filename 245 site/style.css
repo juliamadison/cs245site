@@ -1,0 +1,264 @@
+/* ~ colors ~ */
+:root {
+  --white:#F7F2F2;
+  --black:#0D0D12;
+  --red:#EE3E33;
+  --blue:#211C61;
+  --lightblue:#5853a3;
+  --yellow:#FAB13E;
+}
+
+/* ~ fonts ~ */
+@font-face {
+  font-family: "Vogue";
+  src: url("fonts/Vogue.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Louis George Cafe";
+  src: url("fonts/louis_george_cafe/Louis George Cafe.ttf");
+  font-weight: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:
+      /* pattern made using https://10015.io/tools/css-background-pattern-generator! */
+      conic-gradient(at 62.5% 12.5%, #a39595 25%, #0000 0) calc(44px/-8) calc(44px/2),
+      conic-gradient(at 62.5% 12.5%, #a39595 25%, #0000 0) calc(-3*44px/8) calc(44px/4),
+      conic-gradient(at 87.5% 62.5%, #a39595 25%, #0000 0) calc(3*44px/8) calc(44px/4),
+      conic-gradient(at 87.5% 62.5%, #a39595 25%, #0000 0) calc(44px/-8) 0,
+      conic-gradient(at 25% 12.5%, #a39595 25%, #0000 0) 0 calc(44px/-4),
+      conic-gradient(at 25% 12.5%, #a39595 25%, #0000 0) calc(44px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #a39595 25%, #0000 0) calc(44px/8) 0
+      #5b4f4f;
+background-size: 44px 44px;
+
+}
+
+ /* use to update nav bar problem */
+a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s;
+  color: var(--black);
+}
+
+a:hover {
+  transform: scale(1.1);
+  color: var(--yellow);
+}
+
+main {
+  margin: 0 12%; 
+  background: var(--white);
+  height: 120vh;
+}
+
+html{
+  font-size: 12pt;
+  font-family: "Louis George Cafe";
+}
+
+.logoText {
+  font-family: "Vogue";
+  font-size: 20pt;
+}
+
+/* ------------------ nav bar ------------------*/
+nav{
+  height: 60px;
+  width: 100%;
+  background-color: var(--black);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.links-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav a{
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+  font-family: "Louis George Cafe";
+  transition: transform .2s;
+}
+nav a:hover{
+  transform: scale(1.1); /* make sure to keep this number small */
+}
+
+nav .home-link{
+  margin-right: auto;
+}
+
+nav .home-link:hover {
+  color: var(--white) !important;
+  transform: scale(1) !important;
+}
+
+nav a .tab1:hover {
+  color: var(--red);
+}
+
+nav a .tab2:hover {
+  color: var(--yellow);
+}
+
+nav a .tab3:hover {
+  color: var(--lightblue);
+}
+
+#sidebar-active{
+  display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button{
+  display: none;
+}
+
+@media(max-width: 450px){
+  .links-container{
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    width: 300px;
+
+    background-color: var(--color-1);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-out;
+  }
+  nav a{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+  .open-sidebar-button, .close-sidebar-button{
+    padding: 20px;
+    display: block;
+  }
+  #sidebar-active:checked ~ .links-container{
+    right: 0;
+  }
+  #sidebar-active:checked ~ #overlay{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+}
+
+/* ------------------ slideshows ------------------*/
+/* based on w3 schools */
+/* https://www.w3schools.com/howto/howto_js_slideshow.asp */
+.slideshow-container {
+  max-width: 1500px;
+  position: relative;
+  margin: auto;
+}
+
+/* buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* ------------------ collections menu ------------------*/
+/* based on w3 schools */
+/* https://www.w3schools.com/howto/howto_css_image_responsive.asp */
+
+table {
+  width: 100%;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.collection {
+  position: relative;
+  width: 70%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0; 
+  background: rgba(21, 15, 64, 0.5);
+  color: var(--white);
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: var(--white);
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.collection:hover .overlay {
+  opacity: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 20px;
+}

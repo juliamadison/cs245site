@@ -132,6 +132,10 @@ nav a .tab3:hover {
   display: none;
 }
 
+p {
+  color: var(--black);
+}
+
 @media(max-width: 450px){
   .links-container{
     flex-direction: column;
@@ -261,4 +265,28 @@ td {
   background-color: var(--black);
   color: var(--white);
   padding: 20px;
+}
+
+
+/* ------------------ dropdown ------------------*/
+/* based on w3 schools */
+/* https://www.w3schools.com/Css/css_dropdowns.asp */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: var(--white);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 80px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 20px 10px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

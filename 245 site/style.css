@@ -4,7 +4,7 @@
   --black:#0D0D12;
   --red:#EE3E33;
   --blue:#211C61;
-  --lightblue:#5853a3;
+  --lightblue:#9a9ddf;
   --yellow:#FAB13E;
 }
 
@@ -52,10 +52,6 @@ a {
   color: var(--black);
 }
 
-a:hover {
-  transform: scale(1.1);
-  color: var(--yellow);
-}
 
 main {
   margin: 0 12%; 
@@ -70,7 +66,7 @@ html{
 
 .logoText {
   font-family: "Vogue";
-  font-size: 20pt;
+  font-size: 26pt;
 }
 
 /* ------------------ nav bar ------------------*/
@@ -91,37 +87,36 @@ nav{
 }
 nav a{
   height: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: var(--white);
   font-family: "Louis George Cafe";
-  transition: transform .2s;
+  transition: ease-in-out .8s;
+  font-size: 13pt;
 }
-nav a:hover{
-  transform: scale(1.1); /* make sure to keep this number small */
-}
-
 nav .home-link{
   margin-right: auto;
 }
 
-nav .home-link:hover {
-  color: var(--white) !important;
-  transform: scale(1) !important;
+nav a .tab1, nav a .tab3 {
+  transition: ease-in-out .1s;
 }
 
 nav a .tab1:hover {
   color: var(--red);
+  transform: scale(1.2);
 }
 
 nav a .tab2:hover {
   color: var(--yellow);
+  transform: scale(1.2);
 }
 
 nav a .tab3:hover {
   color: var(--lightblue);
+  transform: scale(1.2);
 }
 
 #sidebar-active{
@@ -147,7 +142,7 @@ p {
     z-index: 10;
     width: 300px;
 
-    background-color: var(--color-1);
+    background-color: var(--black);
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
     transition: 0.75s ease-out;
   }
@@ -198,6 +193,12 @@ p {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  transition:ease-in-out .2s;
+}
+
+.prev:hover, .next:hover {
+  transform: scale(1.6);
+  color: var(--red);
 }
 
 .next {
@@ -249,7 +250,6 @@ td {
   width: 100%;
   transition: .5s ease;
   opacity:0;
-  color: var(--white);
   font-size: 20px;
   padding: 20px;
   text-align: center;
@@ -275,15 +275,16 @@ td {
   position: relative;
   display: inline-block;
   color: var(--white);
+  
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 80px;
+  min-width: 50px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 20px 10px;
+  padding: 10px 10px;
   z-index: 1;
 }
 
